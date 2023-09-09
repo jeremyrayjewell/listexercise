@@ -19,11 +19,12 @@ function addListAfterClick() {
     }
 }
 
-function addListAfterKeydown(event){
+function addListAfterKeydown(event) {
     if (inputLength() > 0 && event.key === 'Enter') {
         createListElement();
+    }
 }
 
 button.addEventListener("click", addListAfterClick);
 
-input.addEventListener("keydown", addListAfterKeydown)
+input.addEventListener("keydown", addListAfterKeydown);
