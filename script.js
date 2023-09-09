@@ -26,4 +26,4 @@ function addListAfterKeydown(event){
 
 button.addEventListener("click", addListAfterClick);
 
-input.addEventListener("keydown", function (addListAfterKeydown)
+input.addEventListener("keydown", addListAfterKeydown)
