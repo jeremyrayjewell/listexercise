@@ -8,9 +8,17 @@ function inputLength() {
 
 function createListElement() {
     var li = document.createElement('li');
+    var deleteButton = document.createElement('button'); // Create a delete button
+    deleteButton.appendChild(document.createTextNode('Delete')); // Set the button text
     li.appendChild(document.createTextNode(input.value));
+    li.appendChild(deleteButton); // Append the delete button to the list item
     ul.appendChild(li);
     input.value = "";
+    deleteButton.addEventListener("click", removeListItem); // Add click event listener to delete button
+}
+
+function removeListItem(event) {
+    event.target.parentNode.remove(); // Remove the parent list item when the delete button is clicked
 }
 
 function addListAfterClick() {
