@@ -3,7 +3,8 @@ var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
 
 button.addEventListener("click", function(){
+    if (input.length>0) {
     var li = document.createElement('li');
     li.appendChild(document.createTextNode(input.value));
-    ul.appendChild(li)
-})
+    ul.appendChild(li)}
+}
