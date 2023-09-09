@@ -36,3 +36,40 @@ function addListAfterKeydown(event) {
 button.addEventListener("click", addListAfterClick);
 
 input.addEventListener("keydown", addListAfterKeydown);
+
+function exportAsPDF() {
+    const doc = new jsPDF();
+
+    // Get all the list items
+    const listItems = document.querySelectorAll('ul li');
+
+    // Initialize the Y position for adding text
+    let y = 20;
+
+    listItems.forEach((item) => {
+        const text = item.textContent.trim();
+        doc.text(20, y, text);
+        y += 10;
+    });
+
+    // Save the PDF with a filename "todo-list.pdf"
+    doc.save('todo-list.pdf');
+}
+
+function addListAfterClick() {
+    if (inputLength() > 0) {
+        createListElement();
+    }
+}
+
+function addListAfterKeydown(event) {
+    if (inputLength() > 0 && event.key === 'Enter') {
+        createListElement();
+    }
+}
+
+button.addEventListener("click", addListAfterClick);
+input.addEventListener("keydown", addListAfterKeydown);
+
+// Add an event listener for the export button
+exportButton.addEventListener("click", exportAsPDF);
