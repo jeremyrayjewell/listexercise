@@ -40,17 +40,22 @@ input.addEventListener("keydown", addListAfterKeydown);
 function exportAsPDF() {
     const doc = new jsPDF();
 
-    const listItems = document.querySelectorAll('ul li');
+ // Add a header
+ doc.setFontSize(16); // Set font size for the header
+ doc.text("To-Do List", 20, 20); // Position and text for the header
 
-    let y = 20;
+ // Get all the list items
+ const listItems = document.querySelectorAll('ul li');
 
-    listItems.forEach((item) => {
-        const text = item.textContent.trim();
-        doc.text(20, y, text);
-        y += 10;
-    });
+ let y = 40; // Adjust the Y position to start below the header
 
-    doc.save('todo-list.pdf');
+ listItems.forEach((item) => {
+     const text = item.textContent.trim();
+     doc.text(20, y, text);
+     y += 10;
+ });
+
+ doc.save('todo-list.pdf');
 }
 
 // Add an event listener for the export button
